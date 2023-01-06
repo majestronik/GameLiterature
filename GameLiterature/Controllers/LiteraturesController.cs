@@ -25,6 +25,18 @@ namespace GameLiterature.Controllers
               return View(await _context.Literature.ToListAsync());
         }
 
+        // GET: Literatures/ShowSearchForm
+        public async Task<IActionResult> ShowSearchForm()
+        {
+            return View();
+        }
+
+        // Post: Literatures/ShowSearchResults
+        public string ShowSearchResults(string SearchPhrase)
+        {
+            return "You Entered " + SearchPhrase;
+        }
+
         // GET: Literatures/Details/5
         public async Task<IActionResult> Details(int? id)
         {
