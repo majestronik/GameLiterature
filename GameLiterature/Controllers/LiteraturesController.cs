@@ -32,9 +32,9 @@ namespace GameLiterature.Controllers
         }
 
         // Post: Literatures/ShowSearchResults
-        public string ShowSearchResults(string SearchPhrase)
+        public async Task<IActionResult> ShowSearchResults(string SearchPhrase)
         {
-            return "You Entered " + SearchPhrase;
+            return View("Index",await _context.Literature.Where(x => x.LiteratureQuestion.Contains(SearchPhrase)).ToListAsync());
         }
 
         // GET: Literatures/Details/5
