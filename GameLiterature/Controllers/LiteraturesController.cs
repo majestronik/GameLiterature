@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GameLiterature.Data;
 using GameLiterature.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GameLiterature.Controllers
 {
@@ -56,6 +57,7 @@ namespace GameLiterature.Controllers
         }
 
         // GET: Literatures/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -64,6 +66,7 @@ namespace GameLiterature.Controllers
         // POST: Literatures/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,LiteratureQuestion,LiteratureAnswer")] Literature literature)
@@ -78,6 +81,7 @@ namespace GameLiterature.Controllers
         }
 
         // GET: Literatures/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Literature == null)
@@ -96,6 +100,7 @@ namespace GameLiterature.Controllers
         // POST: Literatures/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,LiteratureQuestion,LiteratureAnswer")] Literature literature)
@@ -129,6 +134,7 @@ namespace GameLiterature.Controllers
         }
 
         // GET: Literatures/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Literature == null)
@@ -149,6 +155,7 @@ namespace GameLiterature.Controllers
         // POST: Literatures/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Literature == null)
