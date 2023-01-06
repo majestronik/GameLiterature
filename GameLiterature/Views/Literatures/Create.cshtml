@@ -3,10 +3,11 @@
 @{
     ViewData["Title"] = "Create";
 }
+@inject LanguageService language
 
-<h1>Create</h1>
+<h1>@language.Getkey("create")</h1>
 
-<h4>Literature</h4>
+<h4>@language.Getkey("literature")</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
